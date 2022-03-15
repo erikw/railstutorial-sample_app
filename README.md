@@ -1,24 +1,8 @@
-# README
+# Railstutorial - Sample App
+Project from https://www.railstutorial.org/book/static_pages
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+See other projects from the book:
+1. [hello_app](https://github.com/erikw/railstutorial-hello_app)
+1. [toy_app](https://github.com/erikw/railstutorial-toy_app)
+1. [sample_app](https://github.com/erikw/railstutorial-sample_app)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
