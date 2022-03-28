@@ -1,7 +1,8 @@
 module SessionsHelper
   def login(user)
     session[:user_id] = user.id
-    # Session replay attack guard:
+    # Session replay attack guard using a volatile value in the session cookie
+    # https://binarysolo.chapter24.blog/avoiding-session-replay-attacks-in-rails/
     session[:session_token] = user.session_token
   end
 
