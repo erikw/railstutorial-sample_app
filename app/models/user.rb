@@ -22,7 +22,7 @@ class User < ApplicationRecord
     end
 
     def remember
-        self.remember_token = self.new_token
-        update_attribute(:remember_digest, self.digest(self.remember_token))
+        self.remember_token = User.new_token
+        update_attribute(:remember_digest, User.digest(self.remember_token))
     end
 end
