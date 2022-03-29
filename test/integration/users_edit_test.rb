@@ -5,7 +5,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     @user = users(:michael)
   end
 
-  test "Invalid edit shows error" do
+  test "unsuccesful edit" do
     get edit_user_path(@user)
     patch user_path(@user), params: { user: { name: "",
                                           email: "@invalid",
