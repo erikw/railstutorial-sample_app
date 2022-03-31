@@ -1,5 +1,5 @@
 module SessionsHelper
-  def login(user)
+  def log_in(user)
     session[:user_id] = user.id
     # Session replay attack guard using a volatile value in the session cookie
     # https://binarysolo.chapter24.blog/avoiding-session-replay-attacks-in-rails/
@@ -20,8 +20,8 @@ module SessionsHelper
       end
     elsif (user_id = cookies.encrypted[:user_id])
       user = User.find_by(id: user_id)
-      if user&.authenticated?(cookies[:remember_token])
-        login user
+      if user&.authenticated?(:remember, cookies[:remember_token])
+        log_in user
         @current_user = user
       end
     end
