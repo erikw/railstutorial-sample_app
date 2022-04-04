@@ -28,3 +28,10 @@ User.create!(name:  "Erik Westrup",
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
+
+  # Microposts
+  users = User.order(:created_at).take(6).concat [User.find_by(email: "erik.westrup@gmail.com")]
+  50.times do
+    content = Faker::Lorem.sentence(word_count: 5)
+    users.each { |u| u.microposts.create!(content: content) }
+  end
