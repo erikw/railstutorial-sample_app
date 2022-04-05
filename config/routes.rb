@@ -15,8 +15,9 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   resources :account_activations, only: [:edit]
-
   resources :password_resets, only: [:new, :create, :edit, :update]
-
   resources :microposts, only: [:create, :destroy]
+
+  # Kludge: submission error of new micropost from / leads to /microposts.
+  get '/microposts', to: 'static_pages#home'
 end
