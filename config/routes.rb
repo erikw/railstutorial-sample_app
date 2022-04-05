@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   resources :microposts, only: [:create, :destroy]
 
   # Kludge: submission error of new micropost from / leads to /microposts.
+  # Pressing enter in URL bar then leads to non-existing route /microposts.
   get '/microposts', to: 'static_pages#home'
 end
