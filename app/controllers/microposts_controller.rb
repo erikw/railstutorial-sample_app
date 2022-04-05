@@ -18,11 +18,12 @@ class MicropostsController < ApplicationController
   def destroy
     @micropost.destroy
     flash[:success] = "User deleted"
-    if request.referrer.nil? || request.referrer == microposts_url
-      redirect_to root_url
-    else
-      redirect_to request.referrer
-    end
+    #if request.referrer.nil? || request.referrer == microposts_url
+    #  redirect_to root_url
+    #else
+    #  redirect_to request.referrer
+    #end
+    redirect_back(fallback_location: root_url)
   end
 
   private
