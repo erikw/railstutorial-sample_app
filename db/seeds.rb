@@ -29,9 +29,17 @@ User.create!(name:  "Erik Westrup",
              activated: true,
              activated_at: Time.zone.now)
 
-  # Microposts
-  users = User.order(:created_at).take(6).concat [User.find_by(email: "erik.westrup@gmail.com")]
-  50.times do
-    content = Faker::Lorem.sentence(word_count: 5)
-    users.each { |u| u.microposts.create!(content: content) }
-  end
+# Microposts
+users = User.order(:created_at).take(6).concat [User.find_by(email: "erik.westrup@gmail.com")]
+50.times do
+  content = Faker::Lorem.sentence(word_count: 5)
+  users.each { |u| u.microposts.create!(content: content) }
+end
+
+# Relationships
+users = User.all
+user = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
